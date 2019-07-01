@@ -108,10 +108,10 @@ module.exports = options => {
   }
 
   const api = {
-    left: text => _addLines(wordWrap(textColor, text, 'LEFT'), api),
-    right: text => _addLines(wordWrap(textColor, text, 'RIGHT'), api),
-    center: text => _addLines(wordWrap(textColor, text, 'CENTER'), api),
-    wrap: text => _addLines(wordWrap(textColor, text), api),
+    left: (text, color = textColor) => _addLines(wordWrap(color, text, 'LEFT'), api),
+    right: (text, color = textColor) => _addLines(wordWrap(color, text, 'RIGHT'), api),
+    center: (text, color = textColor) => _addLines(wordWrap(color, text, 'CENTER'), api),
+    wrap: (text, color = textColor) => _addLines(wordWrap(color, text), api),
     emptyLine: () => _addLines([emptyLine], api),
     emptyLines: count => _addLines(Array(count || 1).fill(emptyLine), api),
     render: () => [].concat(marginLines, frameTop, spaceLines, content, spaceLines, frameBottom, marginLines).join('\n')
